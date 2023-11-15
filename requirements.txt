@@ -3,4 +3,4 @@ uvicorn==0.15.0
 pyperclip==1.8.2
 gunicorn
 jinja2
-pip
+pip==23.3.1
