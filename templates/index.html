@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Generator</title>
+</head>
+<body>
+    <h1>Password Generator</h1>
+    <form action="/" method="post">
+        <label for="length">Password Length:</label>
+        <input type="number" name="length" value="10" required><br>
+
+        <label>Character Types:</label><br>
+        <input type="checkbox" name="uppercase"> Uppercase
+        <input type="checkbox" name="lowercase"> Lowercase
+        <input type="checkbox" name="digits"> Digits
+        <input type="checkbox" name="symbols"> Symbols<br>
+
+        <button type="submit">Generate Password</button>
+    </form>
+
+    {% if generated_password %}
+        <h2>Generated Password:</h2>
+        <p>{{ generated_password }}</p>
+
+        <button onclick="copyToClipboard()">Copy to Clipboard</button>
+        <script>
+            function copyToClipboard() {
+                var copyText = document.querySelector('p');
+                navigator.clipboard.writeText(copyText.innerText);
+                alert("Password copied to clipboard!");
+            }
+        </script>
+    {% endif %}
+</body>
+</html>
